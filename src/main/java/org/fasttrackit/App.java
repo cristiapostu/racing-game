@@ -47,5 +47,11 @@ public class App
         System.out.println("Value from vehicle class:" + vehicle1.vehicleCount);
 
 
+        new AutoVehicle();
+
+        new AutoVehicle (new Engine ());
+//example of
+        vehicle1.accelerate(34.12);
+        vehicle2.accelerate(130,0.8);
     }
 }
