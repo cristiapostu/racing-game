@@ -1,12 +1,12 @@
 package org.fasttrackit;
 
+import org.fasttrackit.cheater.UFO;
+
 /**
  * Hello world!
- *
  */
-public class App
-{
-    public static void main( String[] args ) {
+public class App {
+    public static void main(String[] args) {
 //        Engine engine = new Engine();
 //        engine.manufacturer = "Renault";
 //        engine.capacity = 1500;
@@ -34,10 +34,10 @@ public class App
 
 //        Example of static variables unique for thr whole application
 
-        Vehicle vehicle1 = new Vehicle ();
+        Vehicle vehicle1 = new Vehicle();
 //        vehicle1.vehicleCount = 1;
 
-        Vehicle vehicle2 = new Vehicle ();
+        Vehicle vehicle2 = new Vehicle();
 //        vehicle2.vehicleCount = 2;
 
 //        Vehicle.vehicleCount = 3;
@@ -49,9 +49,11 @@ public class App
 
         new AutoVehicle();
 
-        new AutoVehicle (new Engine ());
-//example of
+        new AutoVehicle(new Engine());
+//example of invoking overloaded methods
         vehicle1.accelerate(34.12);
-        vehicle2.accelerate(130,0.8);
+        vehicle2.accelerate(130, 0.8);
+
+        new UFO().accelerate (130, 0.8);
     }
 }
