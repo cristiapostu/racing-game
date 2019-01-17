@@ -9,6 +9,9 @@ public class Vehicle {
     private String name;
     private String color;
     private double mileage;
+    private double fuellevel;
+    private double totalTraveledDistance;
+
 
     public Vehicle() {
         vehicleCount++;
@@ -20,6 +23,14 @@ public class Vehicle {
         double traveledDistance = speed * durationInHours;
 
         System.out.println("Traveled distance: " + traveledDistance + " km ");
+
+//      same as: totalTraveledDistance = totalTraveledDistance + traveledDistance;
+        totalTraveledDistance += traveledDistance;
+        System.out.println("Total traveled distance: " + traveledDistance + "km.");
+
+        double spentFuel = traveledDistance + mileage / 100;
+        fuellevel -= spentFuel;
+        System.out.println("Remaining fuel: " + fuellevel);
 
         return traveledDistance;
     }
@@ -56,6 +67,22 @@ public class Vehicle {
 
     public void setMileage(double mileage) {
         this.mileage = mileage;
+    }
+
+    public double getFuellevel() {
+        return fuellevel;
+    }
+
+    public void setFuellevel(double fuellevel) {
+        this.fuellevel = fuellevel;
+    }
+
+    public double getTotalTraveledDistance() {
+        return totalTraveledDistance;
+    }
+
+    public void setTotalTraveledDistance(double totalTraveledDistance) {
+        this.totalTraveledDistance = totalTraveledDistance;
     }
 
     @Override
