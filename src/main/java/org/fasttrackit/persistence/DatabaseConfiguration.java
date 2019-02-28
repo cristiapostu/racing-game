@@ -12,20 +12,23 @@ public class DatabaseConfiguration {
     public static Connection getConnection() throws IOException, ClassNotFoundException, SQLException {
         Properties properties = new Properties();
 
-        InputStream inputStream = DatabaseConfiguration.class.getClassLoader()
-                .getResourceAsStream("db.properties");
+//      try~with~resources
+        try (InputStream inputStream = DatabaseConfiguration.class
+                .getClassLoader()
+                .getResourceAsStream("db.properties")) {
 
-        properties.load(inputStream);
+            properties.load(inputStream);
 
 //        load driver class
-        Class.forName(properties.getProperty("DB_DRIVER_CLASS"));
+            Class.forName(properties.getProperty("DB_DRIVER_CLASS"));
 
-        return DriverManager.getConnection(
+            return DriverManager.getConnection(
 
-                properties.getProperty("DB_URL"),
-                properties.getProperty("DB_USERNAME"),
-                properties.getProperty("DB_PASSWORD"));
+                    properties.getProperty("DB_URL"),
+                    properties.getProperty("DB_USERNAME"),
+                    properties.getProperty("DB_PASSWORD"));
 
 
+        }
     }
 }
